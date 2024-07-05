@@ -46,7 +46,7 @@ type TradePaymentScanpayRefundNotifyUnionpayResponse struct {
 type TradePaymentScanpayRefundAcctInfo struct {
 	DivAmt      string `json:"div_amt"`
 	HuifuId     string `json:"huifu_id"`
-	PartLoanAmt string `json:"part_loan_amt"`
+	PartLoanAmt string `json:"part_loan_amt,omitempty"`
 }
 
 type TradePaymentScanpayRefundAcctSplitBunch struct {

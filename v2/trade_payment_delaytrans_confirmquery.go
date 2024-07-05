@@ -23,20 +23,28 @@ type TradePaymentDelaytransConfirmqueryRequest struct {
 	HuifuId     string `json:"huifu_id"`
 }
 
+type TradePaymentDelaytransConfirmqueryAcctSplitBunch struct {
+	HuifuId   string `json:"huifu_id"`
+	AcctId    string `json:"acct_id"`
+	DivAmt    string `json:"div_amt"`
+	TransStat string `json:"trans_stat"`
+}
+
 type TradePaymentDelaytransConfirmqueryResponse struct {
 	*response.BaseResponse
 	response.Sign
 	Data struct {
-		RespCode       string `json:"resp_code"`
-		RespDesc       string `json:"resp_desc"`
-		HuifuId        string `json:"huifu_id"`
-		OrgReqSeqId    string `json:"org_req_seq_id"`
-		TransStat      string `json:"trans_stat"`
-		UnconfirmAmt   string `json:"unconfirm_amt"`
-		ConfirmedAmt   string `json:"confirmed_amt"`
-		HfSeqId        string `json:"hf_seq_id"`
-		AcctSplitBunch string `json:"acct_split_bunch"`
-		HycFlag        string `json:"hyc_flag"`
-		HycAttachId    string `json:"hyc_attach_id"`
+		RespCode             string                                             `json:"resp_code"`
+		RespDesc             string                                             `json:"resp_desc"`
+		HuifuId              string                                             `json:"huifu_id"`
+		OrgReqSeqId          string                                             `json:"org_req_seq_id"`
+		TransStat            string                                             `json:"trans_stat"`
+		UnconfirmAmt         string                                             `json:"unconfirm_amt"`
+		ConfirmedAmt         string                                             `json:"confirmed_amt"`
+		HfSeqId              string                                             `json:"hf_seq_id"`
+		AcctSplitBunch       string                                             `json:"acct_split_bunch"`
+		AcctSplitBunchObject []TradePaymentDelaytransConfirmqueryAcctSplitBunch `json:"-" autoassign:"AcctSplitBunch"`
+		HycFlag              string                                             `json:"hyc_flag"`
+		HycAttachId          string                                             `json:"hyc_attach_id"`
 	} `json:"data"`
 }
