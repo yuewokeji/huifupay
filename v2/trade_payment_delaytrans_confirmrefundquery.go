@@ -24,17 +24,25 @@ type TradePaymentDelaytransConfirmrefundqueryRequest struct {
 	OrgHfSeqId  string `json:"org_hf_seq_id,omitempty"`
 }
 
+type TradePaymentDelaytransConfirmrefundqueryPayConfirmAcctDetail struct {
+	HuifuId   string `json:"huifu_id"`
+	AcctId    string `json:"acct_id"`
+	DivAmt    string `json:"div_amt"`
+	TransStat string `json:"trans_stat"`
+}
+
 type TradePaymentDelaytransConfirmrefundqueryResponse struct {
 	*response.BaseResponse
 	response.Sign
 	Data struct {
-		RespCode              string `json:"resp_code"`
-		RespDesc              string `json:"resp_desc"`
-		HuifuId               string `json:"huifu_id"`
-		OrgReqDate            string `json:"org_req_date"`
-		OrgHfSeqId            string `json:"org_hf_seq_id"`
-		OrgReqSeqId           string `json:"org_req_seq_id"`
-		TransStat             string `json:"trans_stat"`
-		PayConfirmAcctDetails string `json:"pay_confirm_acct_details"`
+		RespCode                   string                                                         `json:"resp_code"`
+		RespDesc                   string                                                         `json:"resp_desc"`
+		HuifuId                    string                                                         `json:"huifu_id"`
+		OrgReqDate                 string                                                         `json:"org_req_date"`
+		OrgHfSeqId                 string                                                         `json:"org_hf_seq_id"`
+		OrgReqSeqId                string                                                         `json:"org_req_seq_id"`
+		TransStat                  string                                                         `json:"trans_stat"`
+		PayConfirmAcctDetails      string                                                         `json:"pay_confirm_acct_details"`
+		PayConfirmAcctDetailObject []TradePaymentDelaytransConfirmrefundqueryPayConfirmAcctDetail `json:"-" autoassign:"PayConfirmAcctDetails"`
 	} `json:"data"`
 }
